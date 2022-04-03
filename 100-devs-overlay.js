@@ -10,6 +10,7 @@
 // @updateURL    https://raw.githubusercontent.com/Necroni/100devs-place/main/100-devs-overlay.js
 // @downloadURL  https://raw.githubusercontent.com/Necroni/100devs-place/main/100-devs-overlay.js
 // ==/UserScript==
+
 if (window.top !== window.self) {
     window.addEventListener(
       "load",
