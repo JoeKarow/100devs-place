@@ -1,58 +1,23 @@
 // ==UserScript==
-// @name         100Devs logo template
+// @name         Place Mask
 // @namespace    http://tampermonkey.net/
-// @version      0.5
-// @description  Peace and harmony with allies
-// @author       oralekin and exdeejay @osu; artillect#8709, jcb#1032, jumpinglizard#4404 @ greenlattice;
+// @version      0.1
+// @Description  r/place mask for 100Devs
+// @author       cover - script, cover - image
 // @match        https://hot-potato.reddit.com/embed*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=reddit.com
 // @grant        none
-// @updateURL    https://raw.githubusercontent.com/Necroni/100devs-place/main/100-devs-overlay.js
-// @downloadURL  https://raw.githubusercontent.com/Necroni/100devs-place/main/100-devs-overlay.js
 // ==/UserScript==
 
 if (window.top !== window.self) {
-    window.addEventListener(
-      "load",
-      () => {
-        document
-          .getElementsByTagName("mona-lisa-embed")[0]
-          .shadowRoot.children[0].getElementsByTagName("mona-lisa-canvas")[0]
-          .shadowRoot.children[0].appendChild(
-            (function () {
-              const i = document.createElement("img");
-              i.src = "https://raw.githubusercontent.com/Necroni/100devs-place/main/100-devs-place-overlay.png";
-              i.style = "position:absolute;left:0;top:0;image-rendering:pixelated;width:2000px;height:2000px;";
-              i.setAttribute("data-display", "1");
-  
-              // toggle on key press
-              document.addEventListener("keypress", (e) => {
-                if (e.code.toLowerCase() == "space") {
-                  i.style.display = i.getAttribute("data-display") == "1" ? "none" : "block";
-                  i.setAttribute("data-display", 1 - parseInt(i.getAttribute("data-display")));
-                }
-              });
-  
-              // intercept URL changes
-              window.history.oldReplaceState = window.history.replaceState;
-              window.history.replaceState = function (a, b, c, d) {
-                let coordsEl = document.getElementsByTagName("mona-lisa-embed")[0].shadowRoot.children[0].getElementsByTagName("mona-lisa-coordinates")[0].shadowRoot.children[0];
-                let zoomLevel = coordsEl.textContent.replace(/^ \(\d+,\d+\) (\d\.\d)x $/, "$1");
-  
-                // disable when you're zoomed out
-                if (zoomLevel == "0.1" || zoomLevel == "0.2") {
-                  i.style.display = "none";
-                } else {
-                  if (i.getAttribute("data-display") == "1") i.style.display = "block";
-                }
-  
-                window.history.oldReplaceState(a, b, c, d);
-              };
-  
-              return i;
-            })()
-          );
-      },
-      false
-    );
-  }
+  window.addEventListener('load', () => {
+      document.getElementsByTagName("mona-lisa-embed")[0].shadowRoot.children[0].getElementsByTagName("mona-lisa-canvas")[0].shadowRoot.children[0].appendChild(
+      (function () {
+          const i = document.createElement("img");
+          i.src = "https://media.discordapp.net/attachments/423664770256732161/960284526163148883/place-mask.png";
+          i.style = "position: absolute;left: 0;top: 0;image-rendering: pixelated;width: 2000px;height: 2000px;";
+          console.log(i);
+          return i;
+      })())
+  }, false);
+}
