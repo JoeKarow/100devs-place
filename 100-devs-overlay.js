@@ -2,7 +2,7 @@
 // @name         Place Mask
 // @namespace    http://tampermonkey.net/
 // @version      0.1
-// @Description  r/place mask for 100Devs
+// @Description  r/place mask for 100 devs
 // @author       cover - script, cover - image
 // @match        https://hot-potato.reddit.com/embed*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=reddit.com
@@ -14,7 +14,7 @@ if (window.top !== window.self) {
       document.getElementsByTagName("mona-lisa-embed")[0].shadowRoot.children[0].getElementsByTagName("mona-lisa-canvas")[0].shadowRoot.children[0].appendChild(
       (function () {
           const i = document.createElement("img");
-          i.src = "https://media.discordapp.net/attachments/423664770256732161/960284526163148883/place-mask.png";
+          i.src = "https://cdn.discordapp.com/attachments/423664770256732161/960323517365256222/place-mask.png";
           i.style = "position: absolute;left: 0;top: 0;image-rendering: pixelated;width: 2000px;height: 2000px;";
           console.log(i);
           return i;
